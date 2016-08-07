@@ -1,0 +1,27 @@
+@base: #5883AD;
+@highlight: @base + #111;
+@dark-highlight: @base - #333;
+@heading-font: Helvetica, Arial, sans-serif;
+
+* {
+   box-sizing: border-box;
+}
+
+html,body {
+    width:100%;
+    height: 100%;
+    background: @base;
+}
+
+h1 {
+    font-family: @heading-font;
+    color: @dark-highlight;
+}
+
+.option {
+    padding: 5px;
+    background: @highlight;
+    border: none;
+    border-bottom: 1px solid @dark-highlight;
+    margin: 15px;
+}
