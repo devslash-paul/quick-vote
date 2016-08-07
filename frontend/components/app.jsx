@@ -23,15 +23,26 @@ class App extends React.Component {
     }
   }
 
+  onDestroy(item) {
+    var newOpts = this.state.options.filter(x => x !== item);
+    this.setState({options: newOpts})
+  }
+
   render() {
     var key = 1;
+    var options = this.state.options.map(row => {
+      key++;
+      return (
+      <OptionRow 
+        key={key} 
+        value={row} 
+        onDestroy={this.onDestroy.bind(this)}/>
+      )
+    });
     return (
             <div>
                 <h1>Create a new vote</h1>
-                {this.state.options.map(function (row) {
-                  key++;
-                  return <OptionRow key={key} value={row}/>
-                }) }
+                {options}
                 <Option newOption={this.newOption}/>
                 <button type='button'>Create Vote</button>
             </div>
